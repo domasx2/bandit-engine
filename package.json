@@ -1,0 +1,23 @@
+{
+  "name": "cem",
+  "version": "0.0.1",
+  "description": "javascript engine for web based games",
+  "main": "lib/index.js",
+  "scripts": {
+    "compile": "rm -r lib/* & ./node_modules/babel/bin/babel.js -d lib/ src/",
+    "test": "mocha --compilers js:babel/register",
+    "prepublish": "npm run compile"
+  },
+  "keywords": [
+    "component",
+    "entity",
+    "manager"
+  ],
+  "author": "Domas Lapinskas",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "mocha": "^2.2.5",
+    "should": "^7.1.0"
+  }
+}
