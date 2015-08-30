@@ -49,7 +49,7 @@ export default class Entity {
 			let value = component[key];
 
 			//don't add getter/setter to 'private' properties
-			if (key[0] !== '_') {
+			if (key[0] !== '_' && typeof value !== 'function') {
 				
 				if (typeof value === 'object') {
 					value = JSON.parse(JSON.stringify(value));					
@@ -66,7 +66,9 @@ export default class Entity {
 				});
 
 			} else {
-				this[key] = value;
+				if (key !== 'bootstrap') {
+					this[key] = value;
+				}
 			}
 		}
 	}

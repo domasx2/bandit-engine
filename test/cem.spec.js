@@ -1,4 +1,5 @@
 import should from 'should';
+import spy from 'spy';
 import Manager from '../src/cem/manager';
 
 describe('Manager', function() {
@@ -61,6 +62,16 @@ describe('Manager', function() {
 				err = e;
 			}
 			should.exist(err);
+		});
+
+		it('should call bootstrap() on create', function () {
+			let m = new Manager(),
+			 	bootstrap = spy();
+			m.c('foo', {
+				bootstrap
+			});
+			m.e('foo');
+			bootstrap.callCount.should.equal(1);
 		});
 	});
 

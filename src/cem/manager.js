@@ -60,8 +60,8 @@ export default class Manager {
 		let entity = new Entity(this, id);
 		entity.__extend(name);
 		entity.__extend(values);
-		entity.bootstrap();
 		this.entities.set(entity.id, entity);
+		entity.bootstrap();
 		return entity;
 	}
 
